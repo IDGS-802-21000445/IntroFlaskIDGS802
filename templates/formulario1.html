@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form action="/resultado" method="POST">
+    <br>
+    <laber> Numero 1 </label>
+        <input type="text" name="n1">
+        <br>
+        <label> Numero 2 </label>
+        <input type="text" name="n2">
+        <br>
+        <button type="submit" class="btn btn-success">Success</button>
+</form>
+{% endblock %}
