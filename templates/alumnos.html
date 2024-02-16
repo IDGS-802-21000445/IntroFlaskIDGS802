@@ -7,9 +7,9 @@
 
     <form action="" method="post">
         
-        {{macro.input_Form(form.nombre,class="form-control")}}
-        {{macro.input_Form(form.email,class="form-control")}}
-        {{macro.input_Form(form.apaterno,class="form-control")}}
+        {{macro.render_field(form.nombre,class="form-control")}}
+        {{macro.render_field(form.apaterno,class="form-control")}}
+        {{macro.render_field(form.amaterno,class="form-control")}}
 
         <input type="submit" name="btn1">
     </form>

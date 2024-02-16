@@ -10,15 +10,22 @@ def index():
 
 @app.route("/alumnos", methods=["GET","POST"])
 def alumnos():
+    nom =''
+    apa=''
+    ama=''
     alum_form  =forms.UserForm(request.form)
-    if request.method == 'POST':
+    if request.method == 'POST' and alum_form.validate():
         nom=alum_form.nombre.data
-        email=alum_form.email.data
-        apaterno=alum_form.apaterno.data
+        apa=alum_form.apaterno.data
+        ama=alum_form.amaterno.data
         print("nombre: {}".format(nom))
-        print("apterno: {}".format(apaterno))
-        print("email: {}".format(email))
-    return render_template("alumnos.html", form=alum_form,nom=nom,apaterno=apaterno,email=email)
+        print("apterno: {}".format(apa))
+        print("amaterno: {}".format(ama))
+
+        archivo_texto = open("traducciones.txt", "r")
+
+#archivo_texto.write('\n datos en el archivo')
+    return render_template("alumnos.html", form=alum_form,nom=nom,apa=apa,ama=ama)
     
 @app.route("/maestros")
 def maestros():

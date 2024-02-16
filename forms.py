@@ -1,10 +1,17 @@
 from wtforms import Form
 from wtforms import StringField, TextAreaField, SelectField, RadioField, EmailField
+from wtforms import validators
 
 class UserForm(Form):
-    nombre = StringField("Nombre")
-    email = EmailField("Correo Electronico")
-    apaterno = StringField("Apaterno")
-    materias  =SelectField("Materias", choices=[("Español",'Esp'),("Mat","Matemaricas"),("Ingles","ING")])
-    radios = RadioField("Curso", choices=[("1","1"),("2","2"),("3","3"),("4","4")])
+    nombre = StringField('Nombre',[validators.DataRequired(message='Favor de ingresar el nombre'),
+                                   validators.length(min=1,max=40,message='Ingresa nombre valido')
+                                   ])
+    
+    apaterno = StringField('Apaterno')
+    amaterno = StringField('materno')
+    edad = StringField('Edad',[validators.number_range(min=1,max=20,message='Valor no valido')
+                               ])
+    correo = EmailField('Correo Electronico', [validators.Email(message='Ingresase un correo valido')
+                                              ])
+
 
