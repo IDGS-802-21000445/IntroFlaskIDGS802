@@ -11,7 +11,6 @@ class UserForm(Form):
     amaterno = StringField('materno')
     edad = StringField('Edad',[validators.number_range(min=1,max=20,message='Valor no valido')
                                ])
-    correo = EmailField('Correo Electronico', [validators.Email(message='Ingresase un correo valido')
-                                              ])
+
 
 
